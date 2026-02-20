@@ -1,0 +1,129 @@
+h1 {
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 60% 40%, #1a2236 0%, #3a506b 100%);
+  font-family: 'Montserrat', 'Cinzel', serif;
+}
+
+.fancy-title {
+  font-size: 3rem;
+  color: #ffd700;
+  font-family: 'Cinzel', serif;
+  margin-bottom: 2rem;
+  text-shadow: 0 4px 24px #ff4b2b, 0 2px 8px #222;
+  letter-spacing: 2px;
+  animation: fadeInDown 1s;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.movie-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.movie-input {
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  border: 2px solid #ffd700;
+  font-size: 1.2rem;
+  outline: none;
+  background: #222;
+  color: #ffd700;
+  box-shadow: 0 2px 8px #ffd70033;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.movie-input:focus {
+  border-color: #ff4b2b;
+  box-shadow: 0 4px 16px #ff4b2b33;
+}
+
+.movie-btn {
+  padding: 1rem 2.5rem;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #ff4b2b 0%, #ffd700 100%);
+  color: #222;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #ffd70033;
+  transition: background 0.2s, color 0.2s;
+}
+.movie-btn:disabled {
+  background: #ffd70099;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.movie-result {
+  background: #222;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px #ffd70033;
+  padding: 2.5rem;
+  margin-top: 2rem;
+  width: 420px;
+  text-align: left;
+  color: #ffd700;
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.movie-name {
+  font-size: 2rem;
+  color: #ff4b2b;
+  margin-bottom: 0.5rem;
+  font-family: 'Cinzel', serif;
+}
+.movie-desc {
+  color: #ffd700;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+.movie-meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffd700;
+  font-size: 1rem;
+}
+.llm-response {
+  background: linear-gradient(90deg, #ff4b2b 0%, #ffd700 100%);
+  border-radius: 12px;
+  padding: 1.2rem;
+  color: #222;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px #ffd70033;
+}
+.error {
+  color: #ff4b2b;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.fancy-footer {
+  margin-top: 2rem;
+  color: #ffd700;
+  font-size: 1.2rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 1px;
+}
+}
