@@ -5,7 +5,7 @@ from backend.rag.pipeline import run_rag
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-
+print("APP STARTING...")
 # Allow CORS for local frontend
 app.add_middleware(
     CORSMiddleware,
