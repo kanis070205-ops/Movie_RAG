@@ -1,7 +1,6 @@
-.env
 venv/
-rag/___pycache___/
-__pycache___/
+backend/venv/
 frontend/node_modules/
-frontend/dist/
-frontend/readme.md
+__pycache__/
+*.pyc
+.env
