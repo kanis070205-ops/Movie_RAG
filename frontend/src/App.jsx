@@ -15,10 +15,14 @@ function App() {
       const response = await fetch('http://localhost:8000/api/search', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query }),
+        body: JSON.stringify({ description: query }),
       });
       const data = await response.json();
-      setResult(data);
+      // Adapt to backend response: { llm_output, movies }
+      setResult({
+        llm_output: data.llm_output,
+        movies: data.movies
+      });
     } catch (error) {
       setResult({ error: 'Failed to fetch movie info. Please try again.' });
     }
@@ -27,7 +31,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="fancy-title">🎬 CineRAG: Discover Your Movie Magic!</h1>
+      <h1 className="fancy-title">🎬 CineRAG: Discover Your Movie !</h1>
       <form className="movie-form" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -41,6 +45,7 @@ function App() {
           {loading ? 'Searching...' : 'Find Movie'}
         </button>
       </form>
+      {/* No intro section, keep minimal look */}
       {loading && (
         <div style={{marginTop: '2rem'}}>
           <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="spin">
@@ -55,24 +60,33 @@ function App() {
             <div className="error">{result.error}</div>
           ) : (
             <>
-              <h2 className="movie-name">{result.title || 'Movie Title'}</h2>
-              <p className="movie-desc">{result.description || 'No description found.'}</p>
-              <div className="movie-meta">
-                <span>⭐ Rating: {result.rating || 'N/A'}</span>
-                <span>🎭 Genre: {result.genre || 'N/A'}</span>
-                <span>📅 Year: {result.year || 'N/A'}</span>
-              </div>
               <div className="llm-response">
                 <strong>AI Insight:</strong>
-                <p>{result.llm_response ? result.llm_response : 'No AI response. Please check backend integration.'}</p>
+                <p>{result.llm_output ? result.llm_output : 'No AI response. Please check backend integration.'}</p>
               </div>
+              {result.movies && result.movies.length > 0 && (
+                <div className="movie-list-grid">
+                  {result.movies.map((movie, idx) => (
+                    <div key={idx} className="movie-card">
+                      <div className="movie-card-header">
+                        <h3>{movie.title}</h3>
+                        <span className="movie-rating">⭐ {movie.vote_average || 'N/A'}</span>
+                      </div>
+                      <div className="movie-meta-row">
+                        <span className="movie-genre">🎭 {movie.genres || 'N/A'}</span>
+                        <span className="movie-date">📅 {movie.release_date || 'N/A'}</span>
+                      </div>
+                      {movie.tagline && <div className="movie-tagline">“{movie.tagline}”</div>}
+                      <div className="movie-overview">{movie.overview}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </>
           )}
         </div>
       )}
-      <footer className="fancy-footer">
-        <span>✨ Powered by Milvus, Postgres & LLM ✨</span>
-      </footer>
+
     </div>
   );
 }

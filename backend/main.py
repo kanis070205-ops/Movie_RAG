@@ -18,7 +18,7 @@ app.add_middleware(
 class SearchRequest(BaseModel):
     description: str
 
-@app.post("/sapi/earch")
+@app.post("/api/search")
 async def search_movies(request: SearchRequest):
     answer, movies = run_rag(request.description)
     # Return detailed movie info from Postgres and Groq LLM output

@@ -1,3 +1,106 @@
+body {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #232526 0%, #414345 100%);
+  background-image: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-blend-mode: multiply;
+}
+
+.App {
+  background: rgba(97, 97, 104, 0.5);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  margin: 3.5rem auto 2.5rem auto;
+  max-width: 600px;
+}
+/* Intro hero styles */
+.intro-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3.5rem;
+  margin-bottom: 2.5rem;
+  animation: fadeIn 1.2s;
+}
+.intro-animation {
+  animation: popIn 1.1s cubic-bezier(.42,0,.58,1.0);
+}
+@keyframes popIn {
+  0% { transform: scale(0.7) rotate(-10deg); opacity: 0; }
+  60% { transform: scale(1.1) rotate(3deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+/* Modern movie card grid and card styles */
+.movie-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.movie-card {
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+.movie-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.28);
+}
+.movie-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.movie-card h3 {
+  font-size: 1.4rem;
+  margin: 0;
+  color: #ffd700;
+}
+.movie-rating {
+  font-size: 1.1rem;
+  background: #222;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.7rem;
+  color: #ffd700;
+  font-weight: bold;
+}
+.movie-meta-row {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #bbb;
+}
+.movie-genre, .movie-date {
+  background: #333;
+  border-radius: 0.4rem;
+  padding: 0.1rem 0.6rem;
+}
+.movie-tagline {
+  font-style: italic;
+  color: #ffd700;
+  margin-bottom: 0.5rem;
+  margin-top: 0.2rem;
+}
+.movie-overview {
+  color: #eee;
+  font-size: 1.05rem;
+  margin-top: 0.5rem;
+}
 h1 {
 .App {
   min-height: 100vh;
