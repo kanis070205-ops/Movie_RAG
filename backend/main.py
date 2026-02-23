@@ -1,7 +1,7 @@
 
 from fastapi import FastAPI
 from pydantic import BaseModel
-from rag.pipeline import run_rag
+from backend.rag.pipeline import run_rag
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
