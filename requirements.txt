@@ -4,3 +4,4 @@ supabase
 pymilvus
 python-dotenv
 sentence-transformers
+pydantic
