@@ -3,5 +3,5 @@ uvicorn
 supabase
 pymilvus
 python-dotenv
-#sentence-transformers
+sentence-transformers
 pydantic

@@ -1,6 +1,6 @@
 from sentence_transformers import SentenceTransformer
-from backend.db.milvus_client import collection
-from backend.db.supabase_client import supabase
+from db.milvus_client import collection
+from db.supabase_client import supabase
 
 embed_model = SentenceTransformer("all-MiniLM-L6-v2")
 
